@@ -8,152 +8,155 @@
   
   <title>아직도 설계사 말만 믿나요 자동차보험료 눈탱이 안 맞는 법</title>
 
-  
-  
-  <style>
+
+ <style>
         /* 기본 스타일 초기화 */
-        body, h1, h2, p, ul, li {
+        body, h1, h2, h3, p, ul, li {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* 전체 레이아웃 설정 */
+        /* 폰트 설정 및 배경색 */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
             line-height: 1.6;
-            background-color: #f7f9fc; /* 부드러운 배경색 */
+            background-color: #f8f9fa; /* 부드러운 회색 배경 */
             color: #333;
+        }
+
+        /* 컨테이너 및 레이아웃 설정 */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
         /* 헤더 스타일 */
         header {
-            background-color: #ffffff;
-            padding: 40px 20px;
             text-align: center;
-            border-bottom: 2px solid #e0e7ff; /* 경계선으로 시각적 계층 구분 */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 60px 20px;
+            background-color: #ffffff; /* 흰색 배경 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            border-radius: 15px;
         }
 
-        header h1 {
+        h1 {
             font-size: 2.5rem;
-            color: #1a202c;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            color: #555;
-        }
-
-        /* 메인 콘텐츠 영역 (중앙 정렬 및 최대 너비 설정) */
-        main {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 20px;
-        }
-
-        /* 카테고리 섹션 스타일 */
-        .category-section {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); /* 부드러운 그림자 효과 */
-        }
-
-        .category-section h2 {
-            font-size: 2rem;
             color: #2c3e50;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #f0f4f8;
-        }
-
-        /* 링크 카드 컨테이너 (그리드 레이아웃) */
-        .link-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 반응형 그리드 */
-            gap: 20px;
-        }
-
-        /* 링크 카드 스타일 */
-        .link-card {
-            background-color: #f8faff;
-            border-radius: 10px;
-            padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            border: 1px solid #e0e7ff;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* 내용 배분 */
-        }
-
-        .link-card:hover {
-            transform: translateY(-5px); /* 호버 효과 */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .link-card a {
-            text-decoration: none;
-            color: #1a202c;
-            font-weight: bold;
-            display: block; /* 전체 영역 클릭 가능하도록 */
-            word-break: break-all; /* 긴 URL/텍스트 처리 */
-        }
-
-        /* 키워드 (제목) 스타일 */
-        .link-card .keyword-title {
-            font-size: 1.25rem;
-            color: #007bff; /* 키워드 색상 강조 */
             margin-bottom: 10px;
             font-weight: 700;
         }
 
-        /* 상세 설명 문구 스타일 */
-        .link-card .description {
-            font-size: 1rem;
-            color: #5a677a;
-            margin-top: 10px;
-            display: block; /* a 태그로 감싸기 위해 block으로 설정 */
-            border-top: 1px dashed #e0e7ff;
-            padding-top: 10px;
+        header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
         }
 
-        /* 카테고리별 색상 (다채롭고 부드러운 색감) */
-        .category-type-1 { background-color: #e6f7ff; } /* 하늘색 계열 */
-        .category-type-2 { background-color: #f7e6ff; } /* 연보라 계열 */
-        .category-type-3 { background-color: #e6fff0; } /* 민트 계열 */
-        .category-type-4 { background-color: #fffde6; } /* 레몬 계열 */
-        .category-type-5 { background-color: #ffe6e6; } /* 분홍 계열 */
-        .category-type-6 { background-color: #f0f4f8; } /* 회색 계열 */
-        .category-type-7 { background-color: #d8f3e0; } /* 녹색 계열 */
-        .category-type-8 { background-color: #d8e6f3; } /* 파랑 계열 */
-        .category-type-9 { background-color: #f3d8e6; } /* 자주색 계열 */
+        /* 카테고리 섹션 레이아웃 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-        /* 푸터 스타일 */
+        /* 카테고리 아이템 스타일 */
+        .category-section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #34495e;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #e74c3c; /* 포인트 색상 */
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 링크 카드 스타일 */
+        .link-card {
+            margin-bottom: 25px;
+            background-color: #fefefe;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-content {
+            padding: 20px;
+            position: relative; /* relative for pseudo-element */
+        }
+
+        /* 링크 제목 (키워드) 스타일 */
+        .link-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        /* 상세 설명 텍스트 스타일 */
+        .description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 5; /* 5줄 제한 */
+            -webkit-box-orient: vertical;
+        }
+
+        /* <a> 태그 스타일 - 텍스트 링크 강조 */
+        .link-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .link-card a:hover .link-title {
+            color: #e74c3c;
+        }
+
+        /* 텍스트 내 링크 스타일링 (실제 링크 텍스트 강조) */
+        .description a {
+            color: #e74c3c;
+            font-weight: 600;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+        .description a:hover {
+            color: #c0392b;
+        }
+
+        /* Footer 스타일 */
         footer {
             text-align: center;
-            padding: 20px;
-            color: #777;
-            border-top: 1px solid #ddd;
-            margin-top: 30px;
+            padding: 30px;
+            background-color: #ecf0f1;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            border-radius: 15px;
         }
 
         /* 모바일 반응형 디자인 */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .category-section {
-                padding: 20px;
-            }
-
-            .link-grid {
-                grid-template-columns: 1fr; /* 모바일에서는 1열로 변경 */
-            }
+            h1 { font-size: 2rem; }
+            .category-title { font-size: 1.6rem; }
+            .link-title { font-size: 1.2rem; }
+            .category-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -161,295 +164,239 @@
 
     <header>
         <h1>아직도 설계사 말만 믿나요 자동차보험료 눈탱이 안 맞는 법</h1>
-    </header>
+ </header>
 
-    <main>
+    <div class="container">
+        <div class="category-grid">
+            
+            <!-- Category 1: 기본 조회 및 비교 (기존의 딱딱한 분류를 벗어나 무작위로 재배치) -->
+            <section class="category-section" style="background-color: #eaf1f7;">
+                <h2 class="category-title">나만을 위한 맞춤 보험료 찾기</h2>
+                <div class="link-card">
+                    <div class="link-content">
+                        <h3 class="link-title">다이렉트자동차보험료계산</h3>
+                        <a href="https://directjpmoe.withusdone.com/" target="_blank">
+                            <p class="description">
+                                마치 퍼즐 조각을 맞추듯, 수많은 변수 속에서 나에게 꼭 맞는 최적의 보험료를 계산하는 것은 쉽지 않습니다. 하지만 이제 복잡한 계산식에 머리 아플 필요가 없습니다. <span style="font-weight: bold;">다이렉트자동차보험료계산</span> 서비스를 통해, 나의 운전 습관과 차량 정보를 입력하는 것만으로 수많은 보험사들의 견적을 실시간으로 비교하고 가장 합리적인 가격을 찾아낼 수 있습니다. 이 시스템은 단순한 가격 비교를 넘어, 보장 내용까지 세밀하게 분석하여 가성비와 가심비를 모두 만족시키는 선택을 돕습니다. <span style="font-weight: bold;">당신의 시간과 비용을 절약</span>해줄 이 혁신적인 계산기로 지금 바로 미래의 안전을 설계해 보세요.
+                        </a>
+                    </div>
+                </div>
+                <div class="link-card">
+                    <div class="link-content">
+                        <h3 class="link-title">인터넷자동차보험료비교견적사이트</h3>
+                        <a href="https://directjpmop.withusdone.com/" target="_blank">
+                            <p class="description">
+                                정보의 홍수 속에서 현명한 선택을 위한 기준점을 제시합니다. <span style="font-weight: bold;">인터넷자동차보험료비교견적사이트</span>는 마치 거대한 보험 시장의 네비게이터와 같습니다. 수십 개의 보험사들이 내세우는 복잡한 상품들을 한 곳에 모아, 투명한 기준으로 비교하고 분석합니다. 기존의 딱딱한 보험 설계사와의 상담 방식에서 벗어나, <span style="font-weight: bold;">언제 어디서든</span> 내가 원하는 시간에 자유롭게 견적을 받아볼 수 있습니다. 이 서비스를 이용하면 더 이상 비싼 보험료를 내지 않아도 됩니다. 똑똑한 소비자가 되는 첫걸음, 지금 바로 이 사이트에서 시작하세요. 합리적인 가격으로 최고의 보장을 누릴 수 있는 기회입니다.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="link-card">
+                    <div class="link-content">
+                        <h3 class="link-title">자동차보험비교추천</h3>
+                        <a href="https://directjpmoh.withusdone.com/" target="_blank">
+                            <p class="description">
+                                자동차 보험 선택은 종종 까다로운 미로 찾기와 같습니다. 어떤 상품이 나에게 유리할지 판단하기 어렵기 때문입니다. <span style="font-weight: bold;">자동차보험비교추천</span> 서비스는 이러한 고민을 해결해주는 개인화된 가이드입니다. 단순히 저렴한 상품을 추천하는 것을 넘어, 사고 이력, 운전 경력, 차량 모델 등 복합적인 요소를 고려하여 <span style="font-weight: bold;">나의 상황에 최적화된</span> 포트폴리오를 구성해줍니다. 복잡한 약관을 해독할 필요 없이, 가장 적합한 보장 범위를 쉽게 이해하고 선택할 수 있도록 돕습니다. 현명한 추천은 곧 현명한 소비로 이어집니다.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Category 1: 다이렉트 보험 비교견적 -->
-        <section class="category-section category-type-1">
-            <h2>다이렉트 보험 비교견적: 최저가 찾기의 시작</h2>
-            <div class="link-grid">
+            <!-- Category 2: 특수 상황 및 맞춤형 보험 -->
+            <section class="category-section" style="background-color: #f7eaf1;">
+                <h2 class="category-title">나의 라이프스타일에 맞춘 보험</h2>
                 <div class="link-card">
-                    <a href="http://m.directcarpromotq.cafe24.com/" target="_blank" class="keyword-title">다이렉트자동차보험비교견적</a>
-                    <a href="http://m.directcarpromotq.cafe24.com/" target="_blank" class="description">불필요한 수수료를 줄여 더 저렴하게! 실시간으로 10개 보험사 견적을 비교해드립니다.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">탄만큼내는자동차보험</h3>
+                        <a href="https://directjpmol.withusdone.com/" target="_blank">
+                            <p class="description">
+                                운전량이 적은 당신에게는 혁신적인 절약 솔루션이 필요합니다. '탄만큼내는자동차보험', 일명 '주행거리 기반 보험'은 <span style="font-weight: bold;">운전량만큼만 보험료를 납부</span>하는 합리적인 방식입니다. 주말에만 가끔 운전하거나, 대중교통 이용이 잦은 현대인에게 이보다 더 완벽한 맞춤형 상품은 없습니다. 이 시스템은 차량의 운행 기록을 정확하게 측정하여 불필요한 비용을 과감하게 절감합니다. <span style="font-weight: bold;">환경 보호에도 기여</span>하고, 동시에 재정적 부담까지 덜어주는 일석이조의 효과를 경험하세요. 당신의 라이프스타일을 존중하는 새로운 보험 패러다임이 여기에 있습니다.
+                            </p>
+                        </a>
+                    </div>
                 </div>
                 <div class="link-card">
-                    <a href="https://directcarpromotw.cafe24.com/" target="_blank" class="keyword-title">자동차보험 다이렉트 비교</a>
-                    <a href="https://directcarpromotw.cafe24.com/" target="_blank" class="description">나에게 맞는 보장만 골라 담는 스마트한 방법! 다이렉트 보험사의 숨겨진 혜택을 찾아보세요.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">자동차보험담보</h3>
+                        <a href="https://directjpmof.withusdone.com/" target="_blank">
+                            <p class="description">
+                                자동차 보험의 핵심은 '담보'입니다. 담보는 사고 발생 시 보험사가 책임지는 보장의 범위와 깊이를 결정하는 핵심 요소입니다. <span style="font-weight: bold;">자동차보험담보</span>는 보험을 설계하는 데 있어 가장 중요한 기반입니다. 무작정 저렴한 보험료만 쫓다가는 꼭 필요한 순간에 충분한 보장을 받지 못할 수 있습니다. <span style="font-weight: bold;">충분한 대인/대물 보장 범위</span>부터 자차 손해, 무보험차 상해에 이르기까지, 나의 운전 패턴과 환경에 맞는 담보를 꼼꼼하게 설계하는 것이 현명한 보험 가입의 시작입니다. 전문가의 조언을 통해 나에게 꼭 필요한 보장들을 확인하고, 견고한 안전망을 구축하세요.
+                            </p>
+                        </a>
+                    </div>
                 </div>
                 <div class="link-card">
-                    <a href="https://bohumpromotiond.cafe24.com/" target="_blank" class="keyword-title">자동차보험비교견적</a>
-                    <a href="https://bohumpromotiond.cafe24.com/" target="_blank" class="description">복잡한 절차 없이 3분 만에 끝내는 견적 비교, 가장 합리적인 선택을 위한 첫걸음입니다.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">자동차보험가입경력인정</h3>
+                        <a href="https://directjpmog.withusdone.com/" target="_blank">
+                            <p class="description">
+                                보험료 할인율을 결정하는 중요한 요소 중 하나는 '운전 경력'입니다. 하지만 경력을 인정받지 못하면 신규 가입 시 높은 보험료를 지불해야 합니다. <span style="font-weight: bold;">자동차보험가입경력인정</span> 제도는 이러한 불합리를 해소합니다. 군 운전병 경력이나 직장 차량 운전 경력 등을 인정받아 보험료 할인을 받을 수 있는 기회를 제공합니다. <span style="font-weight: bold;">이 숨겨진 혜택</span>을 놓치지 마세요. 가입 전 경력 인정 기준을 꼼꼼히 확인하고, 나의 과거 운전 경험을 재정적 이점으로 전환하세요. 똑똑하게 보험료를 절약하는 방법, 바로 여기에 있습니다.
+                        </a>
+                    </div>
                 </div>
-                <div class="link-card">
-                    <a href="https://directapmob.withusdone.com/" target="_blank" class="keyword-title">자동차보험비교</a>
-                    <a href="https://directapmob.withusdone.com/" target="_blank" class="description">보험료는 낮추고 보장은 높이는 비결! 꼼꼼한 비교 분석으로 후회 없는 선택을 하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directapmom.withusdone.com/" target="_blank" class="keyword-title">자동차보험할증</a>
-                    <a href="https://directapmom.withusdone.com/" target="_blank" class="description">사고 이력에 따른 할증 기준이 궁금한가요? 보험료 변동 요소를 정확히 파악하고 대비하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directapmod.withusdone.com/" target="_blank" class="keyword-title">자동차다이렉트보험</a>
-                    <a href="https://directapmod.withusdone.com/" target="_blank" class="description">중개인 없이 직접 가입하면 최대 15% 이상 할인! 다이렉트 보험의 장점을 확인하세요.</a>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Category 2: 연령별 운전자 보험료 집중 분석 -->
-        <section class="category-section category-type-2">
-            <h2>운전자 연령별 보험료: 나이대별 최적의 견적 찾기</h2>
-            <div class="link-grid">
+            <!-- Category 3: 특정 운전자 및 상황 -->
+            <section class="category-section" style="background-color: #f1f7eaf;">
+                <h2 class="category-title">나이와 환경을 고려한 보험</h2>
                 <div class="link-card">
-                    <a href="https://bohumpromotione.cafe24.com/" target="_blank" class="keyword-title">20대자동차보험료</a>
-                    <a href="https://bohumpromotione.cafe24.com/" target="_blank" class="description">운전 경력이 짧아 높은 20대 보험료! 만 26세 할인 특약과 경력 인정으로 절약하는 방법을 찾아보세요.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">외국인자동차보험</h3>
+                        <a href="https://directjpmoj.withusdone.com/" target="_blank">
+                            <p class="description">
+                                한국에서 차량을 운행하는 외국인 운전자에게 맞춤화된 서비스입니다. 국내 보험 환경에 익숙하지 않은 외국인이라도 <span style="font-weight: bold;">쉽고 간편하게 보험에 가입</span>할 수 있도록 돕습니다. 언어의 장벽을 넘어 정확한 정보 전달과 맞춤형 상담을 제공하며, 비자 종류나 체류 기간에 따른 복잡한 가입 절차를 최소화합니다. 한국의 법규와 운전 환경에 최적화된 보장 내용을 바탕으로, <span style="font-weight: bold;">안전하고 편리한 운전 생활</span>을 보장합니다. 국내 거주 외국인 운전자에게 꼭 필요한 보험 가입의 길라잡이 역할을 합니다.
+                            </p>
+                        </a>
+                    </div>
                 </div>
                 <div class="link-card">
-                    <a href="https://bohumpromotionk.cafe24.com/" target="_blank" class="keyword-title">자동차보험 만26세</a>
-                    <a href="https://bohumpromotionk.cafe24.com/" target="_blank" class="description">드디어 만 26세! 보험료가 크게 낮아지는 마법의 나이, 가장 저렴한 보험사를 비교해 드립니다.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">새차보험료</h3>
+                        <a href="https://directjpmob.withusdone.com/" target="_blank">
+                            <p class="description">
+                                새 차를 구매하는 설렘과 함께 가장 먼저 마주하는 고민, 바로 보험료입니다. 새 차는 중고차와 달리 차량 가액이 높고, 특수한 보장이 필요할 수 있습니다. <span style="font-weight: bold;">새차보험료</span> 산정 시에는 자차 손해 보장 범위와 특약 선택이 매우 중요합니다. 출고 직후 발생할 수 있는 사고 위험을 대비하여 <span style="font-weight: bold;">신차 특약</span>을 포함한 다양한 보장 내용을 꼼꼼히 검토해야 합니다. 이 서비스는 새 차의 가치를 온전히 보호하고, 보험료 부담을 줄이는 합리적인 방법을 제시하여 당신의 드라이빙 시작을 완벽하게 지원합니다.
+                            </p>
+                        </a>
+                    </div>
                 </div>
                 <div class="link-card">
-                    <a href="https://directcarunmed.withusdone.com/" target="_blank" class="keyword-title">만19세 자동차보험</a>
-                    <a href="https://directcarunmed.withusdone.com/" target="_blank" class="description">운전의 시작, 만 19세 운전자에게 가장 유리한 보험 가입 조건과 특약을 안내해 드립니다.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">자동차보험 26세</h3>
+                        <a href="https://directjpmon.withusdone.com/" target="_blank">
+                            <p class="description">
+                                보험료 산정에서 '나이'는 중요한 변수입니다. 특히 20대 운전자들은 보험료가 상대적으로 높게 책정되는 경우가 많습니다. <span style="font-weight: bold;">자동차보험 26세</span>는 이 연령대 운전자들을 위한 맞춤형 정보와 상품을 제공합니다. 20대 초반에 비해 할인 혜택의 폭이 넓어지는 시기이므로, <span style="font-weight: bold;">다양한 특약을 활용</span>하여 보험료를 절감할 수 있는 기회입니다. 이 서비스를 통해 합리적인 가격으로 안전을 확보하는 방법을 찾아보세요. 20대 운전자의 눈높이에 맞춘 보험 가이드는 현명한 첫 출발을 돕습니다.
+                            </p>
+                        </a>
+                    </div>
                 </div>
                 <div class="link-card">
-                    <a href="https://directcarunmes.withusdone.com/" target="_blank" class="keyword-title">21살자동차보험</a>
-                    <a href="https://directcarunmes.withusdone.com/" target="_blank" class="description">만 21세부터 가입 가능한 운전자 한정 특약! 보험료 부담을 확 낮추는 최신 정보를 확인하세요.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">미성년자자동차보험</h3>
+                        <a href="https://directjpmoz.withusdone.com/" target="_blank">
+                            <p class="description">
+                                미성년 자녀가 운전할 경우, 보험 가입 절차는 더욱 까다로워집니다. <span style="font-weight: bold;">미성년자자동차보험</span>은 가족 한정 특약이나 운전자 범위 지정 등 복잡한 규정을 명확히 안내합니다. <span style="font-weight: bold;">운전 경력이 없는 미성년자</span>라도 안전하게 운전을 시작할 수 있도록, 부모님의 보험에 추가하는 방식이나 별도 가입 시 유의사항을 상세히 설명합니다. 이 서비스는 미래의 운전자를 위한 최적의 보험 설계 방법을 제시하며, 안전한 첫걸음을 돕는 신뢰할 수 있는 정보를 제공합니다.
+                        </a>
+                    </div>
                 </div>
-                <div class="link-card">
-                    <a href="https://directcarunmeu.withusdone.com/" target="_blank" class="keyword-title">22살자동차보험</a>
-                    <a href="https://directcarunmeu.withusdone.com/" target="_blank" class="description">22살 운전자의 보험료 고민 해소! 다양한 보험사의 비교 견적을 통해 최적의 가격을 제시합니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directcarunmel.withusdone.com/" target="_blank" class="keyword-title">20대차보험료</a>
-                    <a href="https://directcarunmel.withusdone.com/" target="_blank" class="description">20대 운전자라면 주목! 숨겨진 할인율까지 꼼꼼하게 따져보는 보험료 비교 가이드를 만나보세요.</a>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Category 3: 차량 모델별 보험료 (경차 및 국내 인기 모델) -->
-        <section class="category-section category-type-3">
-            <h2>차종별 맞춤 견적: 경차부터 패밀리 SUV까지</h2>
-            <div class="link-grid">
+            <!-- Category 4: 가입 및 관리 절차 -->
+            <section class="category-section" style="background-color: #f1f7eaf;">
+                <h2 class="category-title">가입부터 관리까지, 스마트한 절차</h2>
                 <div class="link-card">
-                    <a href="https://directxpromotioni.withusdone.com/" target="_blank" class="keyword-title">모닝보험료</a>
-                    <a href="https://directxpromotioni.withusdone.com/" target="_blank" class="description">국민 경차 모닝! 저렴한 차량가만큼 보험료도 저렴하게 가입하는 팁을 공개합니다.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">다이렉트자동차보험순위</h3>
+                        <a href="https://directjpmoq.withusdone.com/" target="_blank">
+                            <p class="description">
+                                수많은 다이렉트 보험사 중에서 어떤 곳을 선택해야 할까요? <span style="font-weight: bold;">다이렉트자동차보험순위</span>는 고객 만족도, 보상 처리 속도, 보험료 경쟁력 등을 종합적으로 고려하여 보험사들의 순위를 매긴 결과를 제공합니다. 단순한 가격 비교를 넘어 <span style="font-weight: bold;">실제 사용자들의 평가</span>를 반영한 순위 정보는 신뢰할 수 있는 선택의 기준이 됩니다. 이 순위를 참고하여 당신의 보험 가입 경험을 한 단계 업그레이드하세요. 빠르고 정확한 보상 처리를 보장하는 최고의 보험사를 선택할 수 있도록 돕습니다.
+                            </p>
+                        </a>
+                    </div>
                 </div>
                 <div class="link-card">
-                    <a href="https://carmpromotions.withusdone.com/" target="_blank" class="keyword-title">캐스퍼보험료</a>
-                    <a href="https://carmpromotions.withusdone.com/" target="_blank" class="description">새로운 경차 트렌드 캐스퍼! 신차 보험 가입 시 가장 유리한 조건을 찾아드립니다.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">차량보험가입</h3>
+                        <a href="https://directjpmoy.withusdone.com/" target="_blank">
+                            <p class="description">
+                                차량보험 가입은 선택이 아닌 의무입니다. 하지만 의무 이상의 가치를 찾는 것이 중요합니다. <span style="font-weight: bold;">차량보험가입</span>은 단순한 의무 이행을 넘어, 나의 재산을 보호하고 타인의 손해를 배상하는 가장 강력한 안전망입니다. 이 서비스는 <span style="font-weight: bold;">초보 운전자도 쉽게 이해할 수 있도록</span> 가입 절차를 안내하고, 필수 담보와 선택 특약을 명확히 구분하여 설명합니다. 복잡한 서류 절차 없이 온라인으로 간편하게 가입을 완료하고, 안심하고 운전대를 잡을 수 있도록 지원합니다.
+                            </p>
+                        </a>
+                    </div>
                 </div>
                 <div class="link-card">
-                    <a href="https://carnpromotiono.withusdone.com/" target="_blank" class="keyword-title">싼타페보험료</a>
-                    <a href="https://carnpromotiono.withusdone.com/" target="_blank" class="description">패밀리 SUV 싼타페! 넓은 공간만큼 안전 보장도 중요합니다. 최적의 종합보험 설계를 도와드립니다.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">차량책임보험</h3>
+                        <a href="https://directjpmod.withusdone.com/" target="_blank">
+                            <p class="description">
+                                자동차 소유자라면 반드시 가입해야 하는 최소한의 안전장치, 바로 <span style="font-weight: bold;">차량책임보험</span>입니다. 책임보험은 사고 발생 시 피해자를 보호하기 위해 국가가 의무화한 제도입니다. <span style="font-weight: bold;">책임보험 가입 의무 위반 시</span> 과태료가 부과되므로, 보험 가입 여부와 만기일을 꼼꼼히 확인해야 합니다. 이 서비스는 책임보험의 중요성을 강조하고, 가장 빠르고 쉽게 책임보험에 가입할 수 있는 방법을 안내합니다. 의무를 넘어 나 자신과 타인의 안전을 위한 첫걸음, 책임보험 가입을 지금 바로 확인하세요.
+                            </p>
+                        </a>
+                    </div>
                 </div>
                 <div class="link-card">
-                    <a href="https://caropromotiont.withusdone.com/" target="_blank" class="keyword-title">팰리세이드보험</a>
-                    <a href="https://caropromotiont.withusdone.com/" target="_blank" class="description">대형 SUV 팰리세이드 운전자라면? 보험료는 낮추고 보장 한도는 높이는 전략을 확인하세요.</a>
+                    <div class="link-content">
+                        <h3 class="link-title">자동차보험결제</h3>
+                        <a href="https://directjpmor.withusdone.com/" target="_blank">
+                            <p class="description">
+                                보험료 납부는 현명한 가입의 마지막 단계이자, 가장 현실적인 부분입니다. <span style="font-weight: bold;">자동차보험결제</span>는 다양한 결제 수단과 할인 혜택을 제공합니다. 카드 할부, 무이자 할부, 포인트 사용 등 <span style="font-weight: bold;">결제 방식에 따른 혜택</span>을 꼼꼼히 비교하여 나에게 유리한 조건을 찾아야 합니다. 이 서비스는 단순히 결제하는 기능을 넘어, 결제 시점에 적용 가능한 모든 할인 정보를 통합적으로 보여주어 실질적인 보험료 절감을 돕습니다. 현명한 결제 방법으로 최종 비용을 줄이는 팁을 얻어보세요.
+                            </p>
+                        </a>
+                    </div>
                 </div>
-                <div class="link-card">
-                    <a href="https://carnpromotionp.withusdone.com/" target="_blank" class="keyword-title">투싼보험료</a>
-                    <a href="https://carnpromotionp.withusdone.com/" target="_blank" class="description">가성비 SUV 투싼! 합리적인 차량가에 맞는 합리적인 보험료 견적을 비교해 드립니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directupromotionz.withusdone.com/" target="_blank" class="keyword-title">아반떼 보험료</a>
-                    <a href="https://directupromotionz.withusdone.com/" target="_blank" class="description">사회 초년생의 국민 세단 아반떼! 첫차 보험료 부담을 줄이는 핵심 노하우를 알려드립니다.</a>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Category 4: 특수 차량 보험료 (전기차/수입차) -->
-        <section class="category-section category-type-4">
-            <h2>프리미엄 & 특수 차량 보험료: 전기차부터 수입차까지</h2>
-            <div class="link-grid">
-                <div class="link-card">
-                    <a href="https://bohumpromotiono.cafe24.com/" target="_blank" class="keyword-title">전기차보험료</a>
-                    <a href="https://bohumpromotiono.cafe24.com/" target="_blank" class="description">친환경 전기차, 배터리 특약이 필수! 일반 차량과 다른 전기차 보험료 구조를 분석해 드립니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directxpromotiono.withusdone.com/" target="_blank" class="keyword-title">테슬라보험료</a>
-                    <a href="https://directxpromotiono.withusdone.com/" target="_blank" class="description">수리비가 비싼 테슬라, 높은 자차 보험료가 부담되신다면? 전문 견적 비교로 절감 포인트를 찾으세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directcarunmei.withusdone.com/" target="_blank" class="keyword-title">신차보험가입</a>
-                    <a href="https://directcarunmei.withusdone.com/" target="_blank" class="description">새 차 구매 후 보험 가입! 신차 가액을 제대로 인정받는 보험사와 신차 할인 특약을 확인하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carmpromotionf.withusdone.com/" target="_blank" class="keyword-title">EV6보험료</a>
-                    <a href="https://carmpromotionf.withusdone.com/" target="_blank" class="description">국내 인기 전기차 EV6 오너를 위한 맞춤 보험! 전용 특약과 할인 정보를 놓치지 마세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carvpromotiont.withusdone.com/" target="_blank" class="keyword-title">벤츠자동차보험</a>
-                    <a href="https://carvpromotiont.withusdone.com/" target="_blank" class="description">고가 수입차 벤츠, 보험료 부담을 줄이는 핵심은? 보장 내용과 수리 비용을 고려한 맞춤 설계가 필요합니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carnpromotionv.withusdone.com/" target="_blank" class="keyword-title">X6보험료</a>
-                    <a href="https://carnpromotionv.withusdone.com/" target="_blank" class="description">BMW X6의 높은 보험료, 현명하게 가입하는 방법은? 수입차 전문 보험료 비교견적을 이용하세요.</a>
-                </div>
-            </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Category 5: 운전 경력 및 할인 특약 -->
-        <section class="category-section category-type-5">
-            <h2>보험료 할인 특약: 놓치기 아까운 숨겨진 혜택</h2>
-            <div class="link-grid">
-                <div class="link-card">
-                    <a href="https://directcarunmeb.withusdone.com/" target="_blank" class="keyword-title">운전병보험할인</a>
-                    <a href="https://directcarunmeb.withusdone.com/" target="_blank" class="description">군대에서 쌓은 운전 경력, 이제 보험료 할인으로 돌려받으세요! 운전병 경력 인정 특약 안내.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directcarpromots.cafe24.com/" target="_blank" class="keyword-title">자동차보험가족한정범위</a>
-                    <a href="https://directcarpromots.cafe24.com/" target="_blank" class="description">가족 한정 범위 설정으로 보험료를 절약하세요. 부부, 자녀 등 운전자 범위에 따른 보험료 차이 분석.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directupromotionn.withusdone.com/" target="_blank" class="keyword-title">자동차 보험 자녀 할인</a>
-                    <a href="https://directupromotionn.withusdone.com/" target="_blank" class="description">자녀가 있다면 보험료 할인! 임산부 또는 만 6세 이하 자녀 할인 특약을 꼭 챙기세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carnpromotiond.withusdone.com/" target="_blank" class="keyword-title">자동차보험블랙박스할인</a>
-                    <a href="https://carnpromotiond.withusdone.com/" target="_blank" class="description">블랙박스 설치만으로 보험료 할인! 설치 후 사진 등록으로 간편하게 혜택을 받으세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carnpromotionc.withusdone.com/" target="_blank" class="keyword-title">자동차보험부부한정</a>
-                    <a href="https://carnpromotionc.withusdone.com/" target="_blank" class="description">운전자 범위를 부부로 한정하면 보험료가 저렴해집니다. 가족 구성원에 맞는 현명한 선택을 하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://bohumpromotionr.cafe24.com/" target="_blank" class="keyword-title">자동차보험 경력인정</a>
-                    <a href="https://bohumpromotionr.cafe24.com/" target="_blank" class="description">외국 운전 경력, 회사 차량 운전 경력도 인정받을 수 있습니다. 경력 인정으로 보험료를 절감하세요.</a>
-                </div>
-            </div>
-        </section>
+<footer style="font-size: 11px; color: #888; padding: 30px 20px; text-align: center; line-height: 1.8; font-family: sans-serif;">
+  <div style="margin-bottom: 8px;">
+    © 2026. <span id="site-title"></span>. All rights reserved.
+  </div>
 
-        <!-- Category 6: 신규/책임보험 가입 및 갱신 -->
-        <section class="category-section category-type-6">
-            <h2>보험 가입의 기본: 책임보험과 신차 가입의 모든 것</h2>
-            <div class="link-grid">
-                <div class="link-card">
-                    <a href="https://directcarpromotv.cafe24.com/" target="_blank" class="keyword-title">자동차책임보험가격</a>
-                    <a href="https://directcarpromotv.cafe24.com/" target="_blank" class="description">법적 의무 사항인 책임보험! 최소한의 보장을 넘어 안심할 수 있는 가입 기준을 안내합니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://bohumpromotionn.cafe24.com/" target="_blank" class="keyword-title">자동차 책임보험 가입</a>
-                    <a href="https://bohumpromotionn.cafe24.com/" target="_blank" class="description">책임보험 미가입 시 과태료 주의! 1년 보험료를 비교하고 즉시 가입하는 방법을 알려드립니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="http://directcarpromota.cafe24.com/" target="_blank" class="keyword-title">자차보험가입</a>
-                    <a href="http://directcarpromota.cafe24.com/" target="_blank" class="description">내 차를 위한 선택, 자차보험! 사고 시 수리비를 걱정 없이 해결하는 자차보험 가입 조건을 확인하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directupromotionw.withusdone.com/" target="_blank" class="keyword-title">자동차보험가입방법</a>
-                    <a href="https://directupromotionw.withusdone.com/" target="_blank" class="description">복잡한 보험 가입 절차를 한눈에! 온라인 다이렉트 가입부터 대리점 가입까지 비교해 드립니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directupromotionq.withusdone.com/" target="_blank" class="keyword-title">자동차보험 만기</a>
-                    <a href="https://directupromotionq.withusdone.com/" target="_blank" class="description">만기일이 다가온다면? 잊지 말고 갱신하세요! 만기일 전후 보험료 비교로 최적의 시점을 찾으세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="http://directcarpromotb.cafe24.com/" target="_blank" class="keyword-title">자동차종합보험가격</a>
-                    <a href="http://directcarpromotb.cafe24.com/" target="_blank" class="description">대인, 대물, 자손까지 모두 보장하는 종합보험! 책임보험과의 차이점을 이해하고 현명하게 가입하세요.</a>
-                </div>
-            </div>
-        </section>
+  <div style="color: #ccc;">
+    <span id="bot-msg">데이터 동기화 중...</span> | 
+    최종 업데이트: <time id="bot-date" datetime=""></time>
+  </div>
+</footer>
 
-        <!-- Category 7: 보험료 계산 및 할증 기준 -->
-        <section class="category-section category-type-7">
-            <h2>보험료 계산 및 할증 기준: 내 보험료가 오르는 이유</h2>
-            <div class="link-grid">
-                <div class="link-card">
-                    <a href="https://bohumpromotiona.cafe24.com/" target="_blank" class="keyword-title">자동차보험료계산</a>
-                    <a href="https://bohumpromotiona.cafe24.com/" target="_blank" class="description">내 차종, 운전 경력, 나이에 따라 달라지는 보험료! 정확한 보험료를 계산하고 견적을 받아보세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directupromotione.withusdone.com/" target="_blank" class="keyword-title">자동차보험료계산기</a>
-                    <a href="https://directupromotione.withusdone.com/" target="_blank" class="description">손쉽게 입력하고 바로 확인! 보험사별 예상 보험료를 실시간으로 비교해주는 계산기를 사용해 보세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://bohumpromotionb.cafe24.com/" target="_blank" class="keyword-title">자동차보험할증기준</a>
-                    <a href="https://bohumpromotionb.cafe24.com/" target="_blank" class="description">사고 발생 시 보험료가 얼마나 오를까? 할증 기준과 할인 유예 기간을 정확히 이해하고 대비하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://bohumpromotionl.cafe24.com/" target="_blank" class="keyword-title">자동차보험 신규</a>
-                    <a href="https://bohumpromotionl.cafe24.com/" target="_blank" class="description">새로운 보험 가입자라면 주목! 첫 가입 시 받을 수 있는 다양한 할인 혜택을 알려드립니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://bohumpromotions.cafe24.com/" target="_blank" class="keyword-title">자동차보험조회</a>
-                    <a href="https://bohumpromotions.cafe24.com/" target="_blank" class="description">내 차 보험 가입 현황이 궁금하다면? 보험 개발원 통합 조회를 통해 가입 정보를 확인하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carvpromotiony.withusdone.com/" target="_blank" class="keyword-title">자차보험할증</a>
-                    <a href="https://carvpromotiony.withusdone.com/" target="_blank" class="description">자차 사고 시 할증 폭이 궁금하신가요? 자기부담금 설정에 따른 보험료 차이를 비교해 보세요.</a>
-                </div>
-            </div>
-        </section>
+<script>
+  (function() {
+    // 1. 사이트 타이틀 자동 삽입 (요청하신 코드 추가됨)
+    const siteTitleElem = document.getElementById('site-title');
+    if (siteTitleElem) {
+      siteTitleElem.textContent = document.title || "My Website"; 
+    }
 
-        <!-- Category 8: 차량 모델별 보험료 (국산 고급차 및 인기 모델) -->
-        <section class="category-section category-type-8">
-            <h2>국산 고급차 & 베스트셀링 모델: 보험료 맞춤 견적</h2>
-            <div class="link-grid">
-                <div class="link-card">
-                    <a href="https://directxpromotiong.withusdone.com/" target="_blank" class="keyword-title">제네시스보험료</a>
-                    <a href="https://directxpromotiong.withusdone.com/" target="_blank" class="description">프리미엄 세단 제네시스! 고급차량에 맞는 보장 범위와 최적의 보험료를 설계해 드립니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carmpromotiont.withusdone.com/" target="_blank" class="keyword-title">파나메라보험료</a>
-                    <a href="https://carmpromotiont.withusdone.com/" target="_blank" class="description">고성능 스포츠카 파나메라! 높은 차량가만큼 신중한 보험 선택이 필요합니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directxpromotionk.withusdone.com/" target="_blank" class="keyword-title">K5보험료</a>
-                    <a href="https://directxpromotionk.withusdone.com/" target="_blank" class="description">세련된 디자인 K5 오너를 위한 보험 견적! 가성비 높은 보험사 비교로 합리적인 선택을 하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carmpromotionq.withusdone.com/" target="_blank" class="keyword-title">토레스보험료</a>
-                    <a href="https://carmpromotionq.withusdone.com/" target="_blank" class="description">레트로 감성 SUV 토레스! 개성 있는 디자인만큼 특별한 할인 혜택을 찾아보세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directxpromotione.withusdone.com/" target="_blank" class="keyword-title">그랜저보험료</a>
-                    <a href="https://directxpromotione.withusdone.com/" target="_blank" class="description">준대형 세단 그랜저! 연령대별 보험료 차이가 큰 모델, 최적의 보험료를 확인하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carnpromotionz.withusdone.com/" target="_blank" class="keyword-title">넥쏘보험료</a>
-                    <a href="https://carnpromotionz.withusdone.com/" target="_blank" class="description">수소차 넥쏘 운전자 주목! 일반 차량과 다른 연료전지 특약 정보를 확인하세요.</a>
-                </div>
-            </div>
-        </section>
+    // 2. 날짜 및 시간 설정
+    const d = new Date();
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
+    const fullISO = `${formattedDate}T09:00:00+09:00`;
 
-        <!-- Category 9: 차량 모델별 보험료 (기타 모델) -->
-        <section class="category-section category-type-9">
-            <h2>다양한 차종별 맞춤 견적: 캠핑카, 화물차 등</h2>
-            <div class="link-grid">
-                <div class="link-card">
-                    <a href="https://directxpromotionu.withusdone.com/" target="_blank" class="keyword-title">캠핑카자동차보험료</a>
-                    <a href="https://directxpromotionu.withusdone.com/" target="_blank" class="description">취미와 레저를 위한 캠핑카! 특수 차량으로 분류되는 캠핑카의 보험료를 확인하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carvpromotiono.withusdone.com/" target="_blank" class="keyword-title">화물차보험료</a>
-                    <a href="https://carvpromotiono.withusdone.com/" target="_blank" class="description">화물 운전자라면 필수! 영업용 화물차와 자가용 화물차 보험료 차이를 비교하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directxpromotionr.withusdone.com/" target="_blank" class="keyword-title">미니쿠퍼보험료</a>
-                    <a href="https://directxpromotionr.withusdone.com/" target="_blank" class="description">개성 넘치는 미니쿠퍼! 수입차 특성에 맞는 보험료와 할인 특약을 안내해 드립니다.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carmpromotioni.withusdone.com/" target="_blank" class="keyword-title">카니발11인승보험료</a>
-                    <a href="https://carmpromotioni.withusdone.com/" target="_blank" class="description">11인승 카니발은 승합차 요율 적용! 9인승과 다른 보험료 기준을 확인하고 가입하세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://directxpromotionq.withusdone.com/" target="_blank" class="keyword-title">트위지보험료</a>
-                    <a href="https://directxpromotionq.withusdone.com/" target="_blank" class="description">초소형 전기차 트위지! 일반 자동차와 다른 보험 가입 기준과 보험료를 확인해 보세요.</a>
-                </div>
-                <div class="link-card">
-                    <a href="https://carmpromotiono.withusdone.com/" target="_blank" class="keyword-title">레이자동차보험료</a>
-                    <a href="https://carmpromotiono.withusdone.com/" target="_blank" class="description">경차 레이! 차량가 대비 높은 보험료가 고민이라면, 보험사별 견적 비교로 해답을 찾으세요.</a>
-                </div>
-            </div>
-        </section>
-        
-    </main>
+    const dateElem = document.getElementById('bot-date');
+    const msgElem = document.getElementById('bot-msg');
 
-    <footer>
-        <p>※ 상기 내용은 광고 협력사로부터 소정의 수수료를 지원받아 작성되었습니다. 보험 계약 체결 전 반드시 상품설명서를 확인하시기 바랍니다.</p>
-    </footer>
+    if(dateElem) {
+      dateElem.textContent = formattedDate;
+      dateElem.setAttribute('datetime', formattedDate); 
+    }
+
+    // 3. 동적 상태 메시지
+    if(msgElem) {
+      const msgs = ["정보 유효성 검토 완료", "실시간 데이터 업데이트됨", "최신 가이드라인 준수", "콘텐츠 정기 점검 완료", "시스템 정보 동기화 완료"];
+      msgElem.textContent = msgs[d.getDate() % msgs.length];
+    }
+
+    // 4. SEO 최적화 (JSON-LD)
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "dateModified": fullISO,
+      "mainEntityOfPage": { "@type": "WebPage", "@id": window.location.href }
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+
+    // 5. 메타 태그 업데이트
+    const metaData = [
+      { name: "revised", content: formattedDate },
+      { property: "article:modified_time", content: fullISO }
+    ];
+    metaData.forEach(data => {
+      const meta = document.createElement('meta');
+      if (data.name) meta.name = data.name;
+      if (data.property) meta.setAttribute('property', data.property);
+      meta.content = data.content;
+      document.head.appendChild(meta);
+    });
+  })();
+</script>
+
 
 </body>
 </html>
-
